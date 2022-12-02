@@ -16,8 +16,7 @@ storage=MemoryStorage()
 logging.basicConfig(level=logging.INFO)
 bot = Bot(config.TOKEN, parse_mode=types.ParseMode.HTML)
 dp = Dispatcher(bot, storage=storage)
-# admin=951378262, 405405526
-admin=0
+admin=951378262, 405405526
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 count = 0
 text = ''
