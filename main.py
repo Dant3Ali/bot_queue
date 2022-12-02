@@ -162,6 +162,29 @@ async def cancle(call: types.CallbackQuery):
     await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, reply_markup=keyboard.sotr, parse_mode='Markdown')
 
 ###############################################################################
+@dp.callback_query_handler(text_contains='st')
+async def sta(call: types.CallbackQuery):
+    try:
+        num = call.message.text[call.message.text.find('[')+1:call.message.text.find(']')]
+        info2 = func.sets(num, int(call.data[2:]))
+        if info2=='😔Этот человек уже имеет этот статус':
+            await bot.send_message(call.message.chat.id, info2)
+        else:
+            await bot.send_message(call.message.chat.id, info2)
+            if int(call.data[2:]) == 2:
+                await bot.send_message(num,f'<b>⚠️ Ваш статус изменён! ⚠️</b>\n\nВаш новый статус: <b>сотрудник</b>', reply_markup=keyboard.start, parse_mode='HTML')
+            elif int(call.data[2:]) == 3:
+                await bot.send_message(num,f'<b>⚠️ Ваш статус изменён! ⚠️</b>\n\nВаш новый статус: <b>дизайнер</b>', reply_markup=keyboard.partner, parse_mode='HTML')
+            elif int(call.data[2:]) == 1:
+                await bot.send_message(num,f'<b>⚠️ Ваш статус изменён! ⚠️</b>\n\nВаш новый статус: <b>Куратор</b>', reply_markup=keyboard.admin, parse_mode='HTML')
+            elif int(call.data[2:]) == 4:
+                await bot.send_message(num,f'<b>⚠️ Ваш статус изменён! ⚠️</b>\n\nВаш новый статус: <b>Заблокирован</b>', reply_markup=keyboard.block, parse_mode='HTML')
+
+            else:
+                await bot.send_message(num,f'<b>⚠️ Ваш статус изменён! ⚠️</b>\n\nВаш новый статус: <b>Пользователь</b>', reply_markup=keyboard.user, parse_mode='HTML')
+    except Exception as e:
+        print('Ошибка 7', e)
+#####################################################
 async def on_startup(_):
     print('Бот начал работу')
 
