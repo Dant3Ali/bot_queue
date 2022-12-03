@@ -1,1 +1,1 @@
-["aiogram", "pysqlite3"]
+aiogram pysqlite3
