@@ -5,14 +5,14 @@ name: Python package
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "master", "dev", "feature"]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "master", "dev", "feature"]
 
 jobs:
   build:
 
-    runs-on: windows
+    runs-on: windows, ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
