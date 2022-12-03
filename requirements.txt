@@ -1,2 +1,1 @@
-pip install -U aiogram
-pip install pysqlite3
+["aiogram", "pysqlite3"]
